@@ -1,0 +1,1883 @@
+/* ==========================================================================
+   elementary-ui — Component & Layout Styles
+   Design tokens are in tokens.css (imported below).
+   ========================================================================== */
+@import url("tokens.css");
+@import url("../fonts/css/all.css");
+
+/* Direct overrides — strongest-wins specificity with !important */
+.text-primary {
+    color: var(--bs-primary-text-emphasis) !important;
+}
+
+.text-secondary {
+    color: var(--bs-secondary-text-emphasis) !important;
+}
+
+.text-success {
+    color: var(--elm-emerald-500) !important;
+}
+
+.text-danger {
+    color: var(--elm-pink-500) !important;
+}
+
+.text-warning {
+    color: var(--elm-amber-600) !important;
+}
+
+.text-info {
+    color: var(--elm-purple-500) !important;
+}
+
+.text-dark {
+    color: light-dark(var(--elm-purple-900), #e8e6ff) !important;
+}
+
+.text-muted {
+    color: var(--elm-text-muted) !important;
+}
+
+/* purple-tinted muted */
+
+p {
+    color: var(--elm-text-default);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    color: var(--elm-text-default);
+    font-weight: 700;
+}
+
+/* Links inherit brand purple by default (already set via --bs-link-color) */
+a {
+    color: var(--bs-link-color);
+}
+
+a:hover {
+    color: var(--bs-link-hover-color);
+}
+
+/* ==========================================================================
+   Bootstrap Button --bs-btn-* overrides
+   Bootstrap 5 sets these scoped variables directly on each .btn-* class,
+   which trumps :root. We redefine them here so every button variant —
+   including inside shadow-DOM components via shared.css — uses brand colours.
+   ========================================================================== */
+
+/* ── btn-primary — Brand Purple ── */
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--elm-purple-500);
+    --bs-btn-border-color: var(--elm-purple-500);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--elm-indigo-500);
+    --bs-btn-hover-border-color: var(--elm-indigo-600);
+    --bs-btn-focus-shadow-rgb: 99, 91, 255;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--elm-indigo-600);
+    --bs-btn-active-border-color: var(--elm-indigo-700);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--elm-purple-500);
+    --bs-btn-disabled-border-color: var(--elm-purple-500);
+}
+
+/* ── btn-secondary — Brand Pink ── */
+.btn-secondary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--elm-pink-500);
+    --bs-btn-border-color: var(--elm-pink-500);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--elm-pink-600);
+    --bs-btn-hover-border-color: var(--elm-pink-600);
+    --bs-btn-focus-shadow-rgb: 255, 62, 118;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--elm-pink-600);
+    --bs-btn-active-border-color: var(--elm-pink-700);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--elm-pink-500);
+    --bs-btn-disabled-border-color: var(--elm-pink-500);
+}
+
+/* ── btn-outline-primary ── */
+.btn-outline-primary {
+    --bs-btn-color: var(--elm-purple-500);
+    --bs-btn-border-color: var(--elm-purple-500);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--elm-purple-500);
+    --bs-btn-hover-border-color: var(--elm-purple-500);
+    --bs-btn-focus-shadow-rgb: 99, 91, 255;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--elm-purple-500);
+    --bs-btn-active-border-color: var(--elm-purple-500);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15);
+    --bs-btn-disabled-color: var(--elm-purple-500);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--elm-purple-500);
+    --bs-gradient: none;
+}
+
+/* ── btn-outline-secondary ── */
+.btn-outline-secondary {
+    --bs-btn-color: var(--elm-pink-500);
+    --bs-btn-border-color: var(--elm-pink-500);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--elm-pink-500);
+    --bs-btn-hover-border-color: var(--elm-pink-500);
+    --bs-btn-focus-shadow-rgb: 255, 62, 118;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--elm-pink-600);
+    --bs-btn-active-border-color: var(--elm-pink-600);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15);
+    --bs-btn-disabled-color: var(--elm-pink-500);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--elm-pink-500);
+    --bs-gradient: none;
+}
+
+/* ── btn-success — Emerald ── */
+.btn-success {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--elm-emerald-500);
+    --bs-btn-border-color: var(--elm-emerald-500);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--elm-emerald-600);
+    --bs-btn-hover-border-color: var(--elm-emerald-700);
+    --bs-btn-focus-shadow-rgb: 16, 185, 129;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--elm-emerald-700);
+    --bs-btn-active-border-color: var(--elm-emerald-700);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--elm-emerald-500);
+    --bs-btn-disabled-border-color: var(--elm-emerald-500);
+}
+
+/* ── btn-danger — Brand Pink (same as secondary) ── */
+.btn-danger {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--elm-pink-500);
+    --bs-btn-border-color: var(--elm-pink-500);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--elm-pink-600);
+    --bs-btn-hover-border-color: var(--elm-pink-600);
+    --bs-btn-focus-shadow-rgb: 255, 62, 118;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--elm-pink-600);
+    --bs-btn-active-border-color: var(--elm-pink-700);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--elm-pink-500);
+    --bs-btn-disabled-border-color: var(--elm-pink-500);
+}
+
+/* ── btn-warning — Amber ── */
+.btn-warning {
+    --bs-btn-color: var(--elm-purple-800);
+    --bs-btn-bg: var(--elm-amber-500);
+    --bs-btn-border-color: var(--elm-amber-500);
+    --bs-btn-hover-color: var(--elm-purple-800);
+    --bs-btn-hover-bg: var(--elm-amber-600);
+    --bs-btn-hover-border-color: var(--elm-amber-600);
+    --bs-btn-focus-shadow-rgb: 245, 158, 11;
+    --bs-btn-active-color: var(--elm-purple-800);
+    --bs-btn-active-bg: var(--elm-amber-600);
+    --bs-btn-active-border-color: var(--elm-amber-600);
+    --bs-btn-disabled-color: var(--elm-purple-800);
+    --bs-btn-disabled-bg: var(--elm-amber-500);
+    --bs-btn-disabled-border-color: var(--elm-amber-500);
+}
+
+/* ── btn-info — Brand Purple ── */
+.btn-info {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--elm-purple-500);
+    --bs-btn-border-color: var(--elm-purple-500);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--elm-indigo-500);
+    --bs-btn-hover-border-color: var(--elm-indigo-600);
+    --bs-btn-focus-shadow-rgb: 99, 91, 255;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--elm-indigo-600);
+    --bs-btn-active-border-color: var(--elm-indigo-700);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--elm-purple-500);
+    --bs-btn-disabled-border-color: var(--elm-purple-500);
+}
+
+/* ── btn-dark — Deep purple-black ── */
+.btn-dark {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--elm-purple-900);
+    --bs-btn-border-color: var(--elm-purple-900);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--elm-purple-800);
+    --bs-btn-hover-border-color: var(--elm-purple-700);
+    --bs-btn-focus-shadow-rgb: 16, 13, 46;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--elm-purple-700);
+    --bs-btn-active-border-color: var(--elm-indigo-700);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--elm-purple-900);
+    --bs-btn-disabled-border-color: var(--elm-purple-900);
+}
+
+/* ── btn-outline-dark ── */
+.btn-outline-dark {
+    --bs-btn-color: var(--elm-purple-900);
+    --bs-btn-border-color: var(--elm-purple-900);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--elm-purple-900);
+    --bs-btn-hover-border-color: var(--elm-purple-900);
+    --bs-btn-focus-shadow-rgb: 16, 13, 46;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--elm-purple-900);
+    --bs-btn-active-border-color: var(--elm-purple-900);
+    --bs-btn-disabled-color: var(--elm-purple-900);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--elm-purple-900);
+    --bs-gradient: none;
+}
+
+/* ── btn-outline-success ── */
+.btn-outline-success {
+    --bs-btn-color: var(--elm-emerald-500);
+    --bs-btn-border-color: var(--elm-emerald-500);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--elm-emerald-500);
+    --bs-btn-hover-border-color: var(--elm-emerald-500);
+    --bs-btn-focus-shadow-rgb: 16, 185, 129;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--elm-emerald-600);
+    --bs-btn-active-border-color: var(--elm-emerald-700);
+    --bs-btn-disabled-color: var(--elm-emerald-500);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--elm-emerald-500);
+    --bs-gradient: none;
+}
+
+/* ── btn-outline-danger ── */
+.btn-outline-danger {
+    --bs-btn-color: var(--elm-pink-500);
+    --bs-btn-border-color: var(--elm-pink-500);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--elm-pink-500);
+    --bs-btn-hover-border-color: var(--elm-pink-500);
+    --bs-btn-focus-shadow-rgb: 255, 62, 118;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--elm-pink-600);
+    --bs-btn-active-border-color: var(--elm-pink-600);
+    --bs-btn-disabled-color: var(--elm-pink-500);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--elm-pink-500);
+    --bs-gradient: none;
+}
+
+/* Base Typographic & Scrolling setup */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--elm-surface-page);
+    /* Faint purple tint to the page bg */
+    overflow-x: hidden;
+    color: var(--elm-text-default);
+    /* Adapts via light-dark() token — dark purple in light mode, soft lavender in dark */
+}
+
+/* Typography Helpers */
+.letter-spacing-1 {
+    letter-spacing: 0.05em;
+}
+
+/* Utility: hide an element visually but keep it in the accessibility tree */
+.sr-only-svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Utility: text-xs — maps to --elm-text-xs (0.72rem) */
+.text-xs {
+    font-size: var(--elm-text-xs);
+}
+
+/* Utility: text-sm-custom — maps to --elm-text-sm (0.82rem) */
+.text-sm-custom {
+    font-size: var(--elm-text-sm);
+}
+
+/* Utility: cursor-pointer */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.max-w-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Utility: constrain hero text block to a comfortable reading width */
+.max-w-hero-text {
+    max-width: 450px;
+    bottom: 120px;
+}
+
+/* Utility: standard color swatch circle used in the Brand palette section */
+.color-swatch {
+    width: 80px;
+    height: 80px;
+}
+
+/* ==========================================================================
+   Layout / Navigation
+   ========================================================================== */
+
+#wrapper {
+    min-height: 100vh;
+}
+
+#sidebar-wrapper {
+    width: var(--elm-sidebar-width);
+    transition: margin var(--elm-transition-speed) ease-in-out;
+    background-color: var(--elm-sidebar-bg) !important;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+    /* Above the route-curtain (z-index: 99999) so sidebar stays visible during transitions */
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    border-color: var(--elm-sidebar-border-faint) !important;
+}
+
+/* Sidebar Footer — mode toggle + version */
+.sidebar-footer {
+    border-top: 1px solid var(--elm-sidebar-border);
+    flex-shrink: 0;
+}
+
+.sidebar-footer-btn {
+    color: var(--elm-sidebar-text-faint);
+    background: transparent;
+    border: none;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.sidebar-footer-btn:hover {
+    color: var(--elm-neutral-50);
+    background: var(--elm-sidebar-hover-bg);
+}
+
+/* Sidebar Toggle Button — tab style */
+#menu-toggle {
+    position: absolute;
+    top: 22px;
+    right: -42px;
+    /* width of the tab, so left edge is flush with sidebar right */
+    width: 42px;
+    height: 40px;
+    z-index: 1050;
+    transition: right var(--elm-transition-speed) ease-in-out,
+        background-color var(--elm-transition-speed) ease-in-out;
+    padding: 0;
+    /* square left, rounded right — tab shape */
+    border-left: none !important;
+    /* seamless join with sidebar */
+    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* State: Sidebar open — tab stays flush with sidebar right edge */
+/* (default state — sidebar is visible, right: -42px keeps tab attached) */
+
+/* State: Sidebar closed (toggled) — tab shifts so its LEFT edge is at x=0 */
+#wrapper.toggled #menu-toggle {
+    right: -42px;
+    /* stays the same; sidebar slides off so the tab follows */
+}
+
+#page-content-wrapper {
+    width: calc(100% - var(--elm-sidebar-width));
+    /* Scroll is scoped here, not at the window level.
+       This means the scrollbar never affects window/html width,
+       so no layout shift bounce between sections. */
+    height: 100vh;
+    overflow-y: auto;
+    transition: width var(--elm-transition-speed) ease-in-out;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--elm-surface-default);
+}
+
+/* ==========================================================================
+   Route transition curtain
+   Fixed overlay that fully covers the viewport during section swaps.
+   Fades in to hide the DOM swap, then fades back out on the new section.
+   ========================================================================== */
+#route-curtain {
+    position: fixed;
+    inset: 0;
+    /* Match body background in light mode */
+    background: var(--elm-surface-page);
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+/* Dark mode: deep purple-black to match the sidebar palette */
+
+/* JS adds this class to trigger the fade-in */
+#route-curtain.curtain-active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Toggle States — Desktop */
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: calc(-1 * var(--elm-sidebar-width));
+    /* Sidebar is off-screen: stop it intercepting mouse events on the canvas */
+    pointer-events: none;
+}
+
+/* Keep the toggle and action tabs always clickable even when sidebar panel is hidden */
+#wrapper.toggled #menu-toggle,
+#wrapper.toggled #sidebar-action-tabs {
+    pointer-events: auto;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: calc(-1 * var(--elm-sidebar-width));
+        position: absolute;
+        height: 100vh;
+        /* Closed by default on mobile — don't eat canvas events */
+        pointer-events: none;
+    }
+
+    #page-content-wrapper {
+        width: 100%;
+    }
+
+    /* Mobile Base (Closed) — sidebar is off-screen so tab follows it */
+    #menu-toggle,
+    #sidebar-action-tabs {
+        right: -42px;
+        /* Toggle buttons must always be reachable */
+        pointer-events: auto;
+    }
+
+    /* Mobile: sidebar open (toggled) — restore full interactivity */
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+        pointer-events: auto;
+    }
+
+    /* Mobile Toggled (Open) — tab stays flush with sidebar right edge */
+    #wrapper.toggled #menu-toggle,
+    #wrapper.toggled #sidebar-action-tabs {
+        right: -42px;
+    }
+
+    #wrapper.toggled {
+        overflow: hidden;
+    }
+}
+
+/* Sidebar Navigation Items */
+.list-group-item {
+    border: none;
+    opacity: 0.65;
+    margin-right: 0;
+    position: relative;
+    overflow: hidden;
+    /* Transition only opacity & transform — background handled by ::before */
+    transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+    background-color: transparent !important;
+}
+
+/* Slide-in background fill — starts off-screen to the right, slides left on hover/active */
+.list-group-item::before,
+.list-group-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--elm-sidebar-item-bg);
+    transform: translateX(101%);
+    transition: transform 0.35s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Cursor-tracking bloom inside the button */
+.list-group-item::after {
+    background: radial-gradient(circle 150px at var(--bx, -50px) var(--by, 50%),
+            var(--elm-sidebar-item-bloom) 0%,
+            transparent 70%);
+}
+
+/* Ensure text/icons sit above the pseudo layers */
+.list-group-item>* {
+    position: relative;
+    z-index: 2;
+}
+
+.list-group-item:hover {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+.list-group-item:hover::before,
+.list-group-item:hover::after {
+    transform: translateX(0);
+}
+
+.list-group-item.active {
+    opacity: 1;
+}
+
+.list-group-item.active::before {
+    transform: translateX(0);
+    background: var(--elm-sidebar-item-bg-active);
+}
+
+.content-section {
+    flex-grow: 1;
+}
+
+/* Getting Started overrides flex-grow so the page can be taller than the viewport,
+   enabling the sticky-hero / docs-overlay scroll effect */
+#getting-started.content-section {
+    flex-grow: 0;
+}
+
+.min-h-500 {
+    min-height: 500px;
+}
+
+/* ==========================================================================
+   Specific Component Rules (replacing inline styles)
+   ========================================================================== */
+
+/* Sandbox context tabs — stacked below #menu-toggle, same tab-out treatment */
+#sidebar-action-tabs {
+    position: absolute;
+    top: 62px;
+    /* just below #menu-toggle (22px top + 40px height) */
+    right: -42px;
+    width: 42px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1050;
+    transition: right var(--elm-transition-speed) ease-in-out;
+}
+
+.sidebar-tab-btn {
+    width: 42px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--elm-action-primary);
+    color: var(--elm-neutral-50);
+    border: none;
+    border-left: none;
+    border-radius: 0;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.2);
+    transition: background-color var(--elm-duration-base) var(--elm-ease-smooth),
+        color var(--elm-duration-base) var(--elm-ease-smooth);
+    border-top: 1px solid var(--elm-sidebar-border-faint);
+}
+
+.sidebar-tab-btn:hover {
+    background-color: var(--elm-indigo-500);
+    color: #fff;
+}
+
+.sidebar-tab-btn.active {
+    background-color: var(--elm-purple-900);
+    color: var(--elm-purple-400);
+}
+
+/* Sidebar: Components section collapse trigger */
+.sidebar-section-trigger {
+    font-size: var(--elm-text-xs);
+    cursor: pointer;
+}
+
+/* Sidebar: chevron icon inside the section trigger */
+.sidebar-section-chevron {
+    font-size: 0.85rem;
+}
+
+/* Sidebar: version badge */
+.sidebar-version-badge {
+    font-size: var(--elm-text-xs);
+}
+
+/* Hero Lottie: fixed-size wrapper so the oversized player can overflow */
+.hero-lottie-wrap {
+    height: 275px;
+    width: 275px;
+}
+
+/* Hero Lottie: double-sized player sits centred inside the wrapper */
+.hero-lottie-player {
+    height: 200%;
+    width: 200%;
+}
+
+/* Code panel: monospace font + compact size for the <code> element */
+#sandbox-code-content {
+    font-family: 'SF Mono', Consolas, Menlo, Monaco, monospace;
+    font-size: var(--elm-text-sm);
+}
+
+/* ==========================================================================
+   Animations & Base Components
+   ========================================================================== */
+
+.elm-shadow-subtle {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+}
+
+.elm-card-interactive {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.elm-card-interactive:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* ==========================================================================
+   3D Hero Section Effects (Getting Started)
+   ========================================================================== */
+.hero-3d-root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    background: transparent;
+    cursor: default;
+    /* Normal cursor by default, changes to grab on hover over blocks */
+}
+
+.hero-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    /* Behind the 3D canvas due to DOM order */
+    overflow: hidden;
+}
+
+/* Grain overlay — clipping container above the 3D canvas */
+.hero-grain {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+    opacity: .22;
+    mix-blend-mode: multiply;
+}
+
+/* Oversized noise tile animates inside the container */
+.hero-grain::after {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    left: -100%;
+    top: -110%;
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(-5%, -10%);
+    }
+
+    20% {
+        transform: translate(-15%, 5%);
+    }
+
+    30% {
+        transform: translate(5%, -25%);
+    }
+
+    40% {
+        transform: translate(-5%, 25%);
+    }
+
+    50% {
+        transform: translate(-15%, 10%);
+    }
+
+    60% {
+        transform: translate(15%, 0%);
+    }
+
+    70% {
+        transform: translate(0%, 15%);
+    }
+
+    80% {
+        transform: translate(5%, 35%);
+    }
+
+    90% {
+        transform: translate(-10%, 10%);
+    }
+}
+
+.bloom {
+    position: absolute;
+    width: 70vmax;
+    height: 70vmax;
+    border-radius: 50%;
+    filter: blur(150px);
+    transition: opacity 0.15s ease-out;
+    /* Smooth transition when clicking/releasing */
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    /* Centers the bloom exactly along the bottom edge */
+}
+
+.bloom-left {
+    background: radial-gradient(circle, var(--elm-action-primary) 0%, transparent 75%);
+    left: var(--left-x, 25%);
+    opacity: var(--left-opacity, 0.5);
+}
+
+.bloom-right {
+    background: radial-gradient(circle, rgba(255, 62, 118, 1) 0%, transparent 75%);
+    /* Brand Pink var(--elm-pink-500) */
+    left: var(--right-x, 75%);
+    opacity: var(--right-opacity, 0.5);
+}
+
+/* Let clicks pass through the hero content wrap to hit the 3D canvas */
+.hero-content-wrap {
+    pointer-events: none;
+    margin-top: 100px;
+}
+
+/* Ensure links or buttons within the hero are still clickable */
+.hero-content-wrap a,
+.hero-content-wrap button {
+    pointer-events: auto;
+}
+
+/* ==========================================================================
+   Getting Started — Hero Sticky & Docs Overlay
+   ========================================================================== */
+
+/* Hero: sticks to the top of #page-content-wrapper while the docs panel scrolls over */
+.hero-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+body.hide-hero-section .hero-sticky {
+    position: relative;
+    height: auto;
+}
+
+body.hide-hero-section #elementary-hero {
+    display: none !important;
+}
+
+body.hide-hero-section .docs-overlay-panel {
+    min-height: 100vh;
+    position: relative;
+    z-index: initial;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    padding-top: 2rem;
+    margin-top: 0 !important;
+    top: 0 !important;
+}
+
+
+/* Docs overlay: scrolls in over the sticky hero */
+.docs-overlay-panel {
+    position: relative;
+    z-index: 2;
+    background: var(--elm-surface-page);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -16px 48px rgba(0, 0, 0, 0.1), 0 -2px 8px rgba(0, 0, 0, 0.06);
+    padding: 3.5rem 2rem 6rem;
+    min-height: 100vh;
+}
+
+/* Bouncing scroll-hint arrow at hero bottom */
+.hero-scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.25rem;
+    pointer-events: none;
+    z-index: 10;
+    animation: scroll-hint-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scroll-hint-bounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(7px);
+        opacity: 1;
+    }
+}
+
+/* Eyebrow label above section heading */
+.docs-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--elm-action-primary);
+}
+
+/* Numbered step bubble */
+.docs-step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--elm-purple-100);
+    color: var(--elm-action-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Code block container */
+.docs-code-block {
+    border: 1px solid var(--elm-border-subtle);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--elm-surface-raised);
+}
+
+.docs-code-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 1rem;
+    background: var(--elm-surface-raised);
+    border-bottom: 1px solid var(--elm-border-subtle);
+}
+
+.docs-code-lang {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--elm-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.docs-copy-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--elm-text-muted);
+    font-size: 0.8rem;
+    line-height: 1;
+    transition: color 0.15s ease;
+}
+
+.docs-copy-btn:hover {
+    color: var(--elm-action-primary);
+}
+
+/* macOS traffic-light dots */
+.docs-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.docs-dot-red {
+    background: #fc5f5a;
+}
+
+.docs-dot-yellow {
+    background: #fdbc40;
+}
+
+.docs-dot-green {
+    background: #34c748;
+}
+
+.docs-code-block pre {
+    font-family: 'SF Mono', Consolas, Menlo, Monaco, monospace;
+    font-size: 0.82rem;
+    color: var(--elm-text-default);
+    background: transparent !important;
+}
+
+.docs-code-block code {
+    background: transparent !important;
+}
+
+/* Feature highlight cards */
+.docs-feature-card {
+    padding: 1.5rem;
+    border: 1px solid var(--elm-card-border);
+    border-radius: 12px;
+    background: var(--elm-surface-default);
+    box-shadow: var(--elm-card-shadow);
+    height: 100%;
+}
+
+.docs-feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--elm-purple-100);
+    color: var(--elm-action-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Bootstrap-aligned JS utility classes
+   (used instead of inline style mutations in app.js)
+   ========================================================================== */
+
+/* Chevron transition — applied to <i class="fa-chevron-down chevron-animated"> */
+.chevron-animated {
+    transition: transform 0.2s ease;
+}
+
+/* Rotated state toggled via JS classList instead of style.transform */
+.chevron-rotated {
+    transform: rotate(180deg);
+}
+
+/* Section fade-in — added/removed on each navigation event */
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Applied by JS on first load to suppress any transition animations during
+   initial state setup (e.g. sidebar opening/closing on checkWidth) */
+.no-transitions * {
+    transition: none !important;
+}
+
+.section-fade-in {
+    animation: sectionFadeIn 0.25s ease forwards;
+}
+
+/* Accessible focus ring for textarea — branded, not suppressed */
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 var(--elm-focus-ring-width) var(--elm-focus-ring-color) !important;
+}
+
+/* ── Code editor widget (comp-prop type="code") ── */
+.comp-prop-row:has(.comp-code-editor) {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+}
+
+.comp-prop-row:has(.comp-code-editor) .comp-prop-label-wrap {
+    padding-top: 0;
+}
+
+/*
+ * Overlay technique: textarea and pre share identical font/padding/sizing so
+ * the caret sits exactly on top of the highlighted characters.
+ * The textarea is the layout driver (resize handles it); the pre is absolutely
+ * positioned to cover it exactly.
+ *
+ * Critical shared values — must be identical on both elements:
+ *   font-family / font-size / line-height / padding / border-width /
+ *   letter-spacing / word-spacing / tab-size / white-space / word-break
+ */
+
+/* Shared token values used on both layers */
+.comp-code-editor {
+    --_code-font:    'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', Menlo, monospace;
+    --_code-size:    11.5px;
+    --_code-lh:      1.6;
+    --_code-pad-v:   0.5rem;
+    --_code-pad-h:   0.65rem;
+
+    position: relative;
+    border: 1px solid var(--elm-border-subtle);
+    border-radius: 6px;
+    background: var(--elm-surface-code, #f8f8fc);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.comp-code-editor:focus-within {
+    border-color: var(--elm-border-brand);
+    box-shadow: var(--elm-focus-ring-shadow);
+}
+
+/* The highlighted pre — absolutely covers the textarea */
+.comp-code-highlight {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: var(--_code-pad-v) var(--_code-pad-h);
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    pointer-events: none;
+    overflow: hidden;           /* scrolling driven by textarea */
+
+    font-family: var(--_code-font);
+    font-size: var(--_code-size);
+    line-height: var(--_code-lh);
+    letter-spacing: 0;
+    word-spacing: 0;
+    tab-size: 2;
+    -moz-tab-size: 2;
+    white-space: pre-wrap;
+    word-break: break-all;
+    box-sizing: border-box;
+}
+
+.comp-code-highlight code,
+.comp-code-highlight code.hljs {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    tab-size: inherit;
+    -moz-tab-size: inherit;
+    white-space: inherit;
+    word-break: inherit;
+    background: transparent;
+    padding: 0;
+    display: block;
+}
+
+/* The textarea — transparent text, visible caret, drives all layout */
+.comp-code-textarea {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    min-height: 4rem;
+    margin: 0;
+    padding: var(--_code-pad-v) var(--_code-pad-h);
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: transparent;
+    caret-color: var(--elm-text-default);
+
+    font-family: var(--_code-font);
+    font-size: var(--_code-size);
+    line-height: var(--_code-lh);
+    letter-spacing: 0;
+    word-spacing: 0;
+    tab-size: 2;
+    -moz-tab-size: 2;
+    white-space: pre-wrap;
+    word-break: break-all;
+
+    resize: vertical;
+    outline: none;
+    box-shadow: none !important;
+    overflow: auto;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+}
+
+.sandbox-preview-container {
+    background-image:
+        linear-gradient(45deg, var(--elm-neutral-100) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--elm-neutral-100) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--elm-neutral-100) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--elm-neutral-100) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* ==========================================================================
+   Sandbox Split Container & Code View
+   ========================================================================== */
+.sandbox-split-container {
+    transition: flex-direction 0.3s ease;
+}
+
+.sandbox-split-container.split-bottom {
+    flex-direction: column !important;
+}
+
+.sandbox-split-container.split-bottom .sandbox-code-panel {
+    height: 33.333%;
+    width: 100%;
+    border-top: 1px solid var(--elm-border-default) !important;
+    border-left: none !important;
+}
+
+.sandbox-split-container.split-right {
+    flex-direction: row !important;
+}
+
+.sandbox-split-container.split-right .sandbox-code-panel {
+    width: 33.333%;
+    height: 100%;
+    border-left: 1px solid var(--elm-border-default) !important;
+    border-top: none !important;
+}
+
+/* ==========================================================================
+   Code Panel Modes (Light vs Dark)
+   ========================================================================== */
+.sandbox-code-panel {
+    z-index: 1000;
+    background-color: var(--elm-surface-default);
+    color: var(--elm-text-default);
+}
+
+.sandbox-code-header {
+    background-color: var(--elm-surface-raised);
+    border-color: var(--elm-border-default) !important;
+}
+
+.sandbox-code-title {
+    color: var(--elm-text-default);
+}
+
+.sandbox-code-btn {
+    color: var(--elm-text-default);
+    background-color: transparent;
+    border-color: var(--elm-border-default);
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sandbox-code-btn:hover,
+.sandbox-code-btn.active {
+    background-color: var(--elm-surface-raised);
+    border-color: var(--elm-border-brand);
+    color: var(--elm-text-default);
+}
+
+.sandbox-code-btn-danger {
+    color: var(--elm-action-danger);
+    background-color: transparent;
+    border-color: var(--elm-border-default);
+}
+
+.sandbox-code-btn-danger:hover {
+    background-color: var(--elm-action-danger);
+    color: var(--elm-neutral-50);
+    border-color: var(--elm-action-danger);
+}
+
+/* Dark mode variations */
+
+/* Base structural adjustments for Highlight.js */
+.sandbox-code-panel pre {
+    border-radius: 6px;
+    background: transparent !important;
+}
+
+.sandbox-code-panel pre code {
+    background: transparent !important;
+    padding: 0;
+}
+
+/* Custom Scrollbar for Code Panel */
+.custom-scrollbar::-webkit-scrollbar,
+.custom-scrollbar *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track,
+.custom-scrollbar *::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Light mode thumb */
+.custom-scrollbar::-webkit-scrollbar-thumb,
+.custom-scrollbar *::-webkit-scrollbar-thumb {
+    background: var(--elm-border-brand);
+    opacity: 0.2;
+    border-radius: 5px;
+    border: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover,
+.custom-scrollbar *::-webkit-scrollbar-thumb:hover {
+    background: var(--elm-action-primary);
+    border: none;
+}
+
+/* Dark mode scrollbar thumb */
+
+/* ==========================================================================
+   Lottie hero — white-to-dark text colour in light mode
+   In dark mode the animation renders as-is (white wordmark on dark bg).
+   In light mode, a CSS filter converts purely-white fills to --bs-dark (var(--elm-purple-900))
+   without touching the purple or pink coloured elements.
+   The feColorMatrix below maps: R'= 0.063*R, G'= 0.051*G, B'= 0.18*B
+   which maps [1,1,1] → [0.063, 0.051, 0.18] ≈ rgb(16,13,46) = var(--elm-purple-900)
+   It has minimal effect on already-saturated colours (purple, pink).
+   ========================================================================== */
+
+/* Lottie player — white fills are patched at load time via app.js (syncLottieColor),
+   keeping the animation fully vector with no rasterising CSS filter. */
+
+/* Dark Mode basic support (simulated via class) */
+
+/* ==========================================================================
+   Component Playground
+   Rendered by app.js when a component.json model is present.
+   ========================================================================== */
+
+/* ── Page wrapper ── */
+.comp-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 900px;
+    width: 100%;
+    padding: 2.5rem 2rem 4rem;
+    margin: 0 auto;
+}
+
+/* ── Header ── */
+.comp-header__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--elm-text-default);
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+}
+
+.comp-header__desc {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ── Preview window ── */
+.comp-preview-card {
+    border: 1px solid var(--elm-card-border);
+    background: var(--elm-surface-default);
+    overflow: hidden;
+    box-shadow: var(--elm-card-shadow);
+}
+
+.comp-preview-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 1rem;
+    border-bottom: 1px solid var(--elm-border-subtle);
+    background: var(--elm-surface-raised);
+}
+
+.comp-preview-dots {
+    display: flex;
+    gap: 5px;
+}
+
+.comp-preview-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--elm-border-subtle);
+}
+
+.comp-preview-dots span:nth-child(1) {
+    background: #fc5f5a;
+}
+
+.comp-preview-dots span:nth-child(2) {
+    background: #fdbc40;
+}
+
+.comp-preview-dots span:nth-child(3) {
+    background: #34c748;
+}
+
+.comp-preview-label {
+    font-size: 0.72rem;
+    color: var(--elm-text-muted);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.comp-preview-window {
+    display: block;
+    width: 100%;
+    min-height: 180px;
+    border: none;
+    background-color: var(--elm-comp-preview-bg);
+}
+
+/* ── Props panel ── */
+.comp-props-card {
+    border: 1px solid var(--elm-card-border);
+    background: var(--elm-surface-default);
+    overflow: hidden;
+    box-shadow: var(--elm-card-shadow);
+}
+
+.comp-props-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--elm-border-subtle);
+    background: var(--elm-surface-raised);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--elm-text-muted);
+}
+
+.comp-props-reset {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--elm-border-subtle);
+    border-radius: 5px;
+    background: transparent;
+    color: var(--elm-text-muted);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    line-height: 1.4;
+}
+
+.comp-props-reset:hover {
+    background: var(--elm-surface-default);
+    border-color: var(--elm-border-brand);
+    color: var(--elm-text-brand);
+}
+
+.comp-props-body {
+    padding: 0.5rem 0;
+}
+
+/* Group label — uppercase category header, intentionally prominent */
+.comp-prop-group {
+    padding: 0.6rem 1.25rem 0.2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--elm-text-brand);
+}
+
+/* Single control row */
+.comp-prop-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: start;
+    gap: 1rem;
+    padding: 0.55rem 1.25rem;
+    transition: background 0.15s ease;
+}
+
+.comp-prop-row:hover {
+    background: var(--elm-surface-raised);
+}
+
+.comp-prop-label-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-top: 0.35rem;
+}
+
+.comp-prop-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--elm-text-default);
+}
+
+.comp-prop-badge {
+    font-size: 0.68rem;
+    font-family: monospace;
+    color: var(--elm-text-muted, #888);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 110px;
+}
+
+/* Select control and text inputs */
+.comp-prop-row select,
+.comp-prop-row input[type="text"],
+.comp-prop-row input[type="number"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 0.3rem 2rem 0.3rem 0.6rem;
+    border: 1px solid var(--elm-border-subtle);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--elm-text-default);
+    background-color: var(--elm-surface-default);
+    background-repeat: no-repeat;
+    background-position: right 0.65rem center;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.comp-prop-row select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b63c9' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    cursor: pointer;
+}
+
+.comp-prop-row input[type="text"]:focus,
+.comp-prop-row input[type="number"]:focus {
+    border-color: var(--elm-border-brand);
+    box-shadow: var(--elm-focus-ring-shadow);
+}
+
+/* Boolean toggle */
+.comp-prop-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.comp-prop-toggle input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 36px;
+    height: 20px;
+    border-radius: 10px;
+    background: var(--elm-purple-100);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+}
+
+.comp-prop-toggle input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--elm-surface-default);
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.comp-prop-toggle input[type="checkbox"]:checked {
+    background: var(--elm-purple-500);
+}
+
+.comp-prop-toggle input[type="checkbox"]:checked::after {
+    transform: translateX(16px);
+}
+
+.comp-prop-toggle-label {
+    font-size: 0.82rem;
+    color: var(--elm-text-muted);
+}
+
+/* range input */
+.comp-prop-range-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.comp-prop-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--elm-purple-500);
+    cursor: pointer;
+}
+
+.comp-prop-range-val {
+    font-size: 0.78rem;
+    color: var(--elm-text-brand);
+    font-weight: 600;
+    min-width: 40px;
+    text-align: right;
+}
+
+/* color swatch */
+.comp-prop-color-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.comp-prop-row input[type="color"] {
+    width: 32px;
+    height: 28px;
+    border: 1px solid var(--elm-border-subtle);
+    border-radius: 6px;
+    padding: 1px;
+    cursor: pointer;
+    background: none;
+}
+
+.comp-prop-color-hex {
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: var(--elm-text-muted);
+}
+
+/* ── Repeater ── */
+.comp-prop-repeater-section {
+    padding: 0.55rem 1.25rem 0.75rem;
+    border-top: 1px solid var(--elm-border-subtle);
+}
+
+.comp-prop-repeater-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.comp-repeater-item {
+    border: 1px solid var(--elm-border-subtle);
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.comp-repeater-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.35rem 0.75rem;
+    background: var(--elm-surface-raised);
+    border-bottom: 1px solid var(--elm-border-subtle);
+}
+
+.comp-repeater-item-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--elm-text-muted);
+}
+
+.comp-repeater-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--elm-text-muted);
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    line-height: 1;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.comp-repeater-remove:hover {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.08);
+}
+
+.comp-prop-row--nested {
+    grid-template-columns: 80px 1fr;
+    padding: 0.35rem 0.75rem;
+    background: var(--elm-surface-default);
+}
+
+.comp-prop-row--nested:hover {
+    background: var(--elm-surface-raised);
+}
+
+.comp-repeater-add {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+    background: none;
+    border: 1px dashed var(--elm-border-subtle);
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--elm-text-brand);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 0.75rem;
+    margin-top: 0.25rem;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.comp-repeater-add:hover {
+    background: var(--elm-surface-raised);
+    border-color: var(--elm-border-brand);
+}
+
+/* ── Repeater field-type dropdown ── */
+.comp-repeater-add-wrap {
+    position: relative;
+    margin-top: 0.25rem;
+}
+
+.comp-repeater-add--dropdown {
+    justify-content: flex-start;
+}
+
+.comp-repeater-add-chevron {
+    margin-left: auto;
+    font-size: 0.7rem;
+    opacity: 0.55;
+    transition: transform 0.15s ease;
+}
+
+.comp-repeater-add-wrap.is-open .comp-repeater-add-chevron {
+    transform: rotate(180deg);
+}
+
+.comp-repeater-add-menu {
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--elm-surface-elevated, var(--elm-surface-raised));
+    border: 1px solid var(--elm-border-subtle);
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    list-style: none;
+    margin: 0;
+    padding: 0.25rem;
+    display: none;
+    z-index: 200;
+}
+
+.comp-repeater-add-wrap.is-open .comp-repeater-add-menu {
+    display: block;
+}
+
+.comp-repeater-add-menu li button {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--elm-text-default);
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: left;
+    transition: background 0.1s ease, color 0.1s ease;
+}
+
+.comp-repeater-add-menu li button:hover {
+    background: var(--elm-surface-raised);
+    color: var(--elm-text-brand);
+}
+
+/* ── Inline code panel (inside preview card) ── */
+.comp-code-panel {
+    border-top: 1px solid var(--elm-border-subtle);
+    overflow-x: auto;
+    background: var(--elm-surface-default);
+}
+
+.comp-code-panel pre {
+    padding: 1.25rem;
+    background: transparent !important;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.comp-code-panel code {
+    background: transparent !important;
+}
+
+/* Dark mode controls */
+
+/* ── Docs Markdown Body ── */
+.docs-md-body {
+    max-width: 860px;
+    line-height: 1.75;
+    color: var(--elm-text-default);
+}
+
+.docs-md-body h1,
+.docs-md-body h2,
+.docs-md-body h3,
+.docs-md-body h4 {
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.docs-md-body h1 { font-size: 1.75rem; }
+.docs-md-body h2 { font-size: 1.35rem; border-bottom: 1px solid var(--elm-border-subtle); padding-bottom: 0.4rem; }
+.docs-md-body h3 { font-size: 1.1rem; }
+
+.docs-md-body p {
+    margin-bottom: 1rem;
+}
+
+.docs-md-body code {
+    font-size: 0.85em;
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    background: var(--elm-surface-raised);
+}
+
+.docs-md-body pre {
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    overflow-x: auto;
+    background: var(--elm-surface-raised);
+    border: 1px solid var(--elm-border-subtle);
+}
+
+.docs-md-body pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+
+.docs-md-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.9rem;
+}
+
+.docs-md-body th,
+.docs-md-body td {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--elm-border-subtle);
+    text-align: left;
+}
+
+.docs-md-body th {
+    background: var(--elm-surface-raised);
+    font-weight: 600;
+}
+
+.docs-md-body blockquote {
+    border-left: 3px solid var(--bs-primary);
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    color: var(--elm-text-muted);
+    background: var(--elm-surface-raised);
+    border-radius: 0 6px 6px 0;
+}
+
+.docs-md-body ul,
+.docs-md-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.docs-md-body li {
+    margin-bottom: 0.35rem;
+}
+
+.docs-md-body hr {
+    border: none;
+    border-top: 1px solid var(--elm-border-subtle);
+    margin: 2rem 0;
+}
+
+/* ── Dropdown: adapt to color-scheme dark mode ────────────────────────────────
+   Bootstrap's dropdown variables don't respond to CSS color-scheme natively —
+   we bridge them here using light-dark() so they track the same toggle.
+   ──────────────────────────────────────────────────────────────────────────── */
+.dropdown-menu {
+    --bs-dropdown-bg:                light-dark(var(--elm-neutral-50), var(--elm-neutral-700));
+    --bs-dropdown-border-color:      light-dark(var(--elm-slate-300), rgba(255, 255, 255, 0.1));
+    --bs-dropdown-color:             light-dark(var(--elm-purple-800), #e8e6ff);
+    --bs-dropdown-link-color:        light-dark(var(--elm-purple-800), #e8e6ff);
+    --bs-dropdown-link-hover-color:  light-dark(var(--elm-purple-900), #e8e6ff);
+    --bs-dropdown-link-hover-bg:     light-dark(var(--elm-purple-50),  rgba(255, 255, 255, 0.08));
+    --bs-dropdown-divider-bg:        light-dark(var(--elm-slate-200),  rgba(255, 255, 255, 0.1));
+}

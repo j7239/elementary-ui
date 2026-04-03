@@ -1,0 +1,4 @@
+[
+    { "title": "Style Guide", "file": "docs/STYLE-GUIDE.md" },
+    { "title": "Component Architecture", "file": "docs/COMPONENTS.md" }
+]

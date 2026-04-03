@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "title": "Dropdown",
+    "description": "<code>&lt;elm-dropdown&gt;</code> — Bootstrap-styled dropdown menu. Items are supplied via <code>&lt;elm-dropdown-item&gt;</code> children.",
+    "dependencies": [],
+    "template": "<elm-dropdown {{btn-style}} {{label}} {{align}}>\n  {{items}}\n</elm-dropdown>",
+    "props": [
+        {
+            "id": "label",
+            "label": "Label",
+            "type": "text",
+            "attribute": "label",
+            "default": "Dropdown"
+        },
+        {
+            "id": "btn-style",
+            "label": "Style",
+            "type": "select",
+            "attribute": "btn-style",
+            "default": "btn-secondary",
+            "options": [
+                { "label": "Primary",          "value": "btn-primary" },
+                { "label": "Secondary",         "value": "btn-secondary" },
+                { "label": "Success",           "value": "btn-success" },
+                { "label": "Danger",            "value": "btn-danger" },
+                { "label": "Warning",           "value": "btn-warning" },
+                { "label": "Info",              "value": "btn-info" },
+                { "label": "Light",             "value": "btn-light" },
+                { "label": "Dark",              "value": "btn-dark" },
+                { "label": "Outline Primary",   "value": "btn-outline-primary" },
+                { "label": "Outline Secondary", "value": "btn-outline-secondary" }
+            ]
+        },
+        {
+            "id": "align",
+            "label": "Alignment",
+            "type": "select",
+            "attribute": "align",
+            "default": "start",
+            "options": [
+                { "label": "Start", "value": "start" },
+                { "label": "End",   "value": "end" }
+            ]
+        },
+        {
+            "id": "items",
+            "label": "Items",
+            "type": "repeater",
+            "itemLabel": "Item",
+            "childTag": "elm-dropdown-item",
+            "default": [
+                { "label": "Action",          "href": "#", "divider": false },
+                { "label": "Another action",  "href": "#", "divider": false },
+                { "label": "Something else",  "href": "#", "divider": false },
+                { "label": "",                "href": "",  "divider": true  },
+                { "label": "Separated link",  "href": "#", "divider": false }
+            ],
+            "props": [
+                { "id": "label",   "label": "Label",   "type": "text",    "attribute": "label" },
+                { "id": "href",    "label": "Href",    "type": "text",    "attribute": "href" },
+                { "id": "divider", "label": "Divider", "type": "boolean", "attribute": "divider", "default": false }
+            ]
+        }
+    ]
+}

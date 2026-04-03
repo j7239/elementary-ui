@@ -1,0 +1,286 @@
+/* ==========================================================================
+   elementary-ui — Design Tokens
+   Import order: tokens.css FIRST, then styles.css.
+   Do not add component styles here — use styles.css.
+
+   Layer 1 : Primitives   (raw named values — no light-dark)
+   Layer 2 : Semantic     (intent-based — light-dark() encodes both modes)
+   Layer 3 : BS Bridge    (maps --bs-* vars to --elm-* so utilities follow)
+   Layer 4 : Component    (scoped values for specific components)
+   ========================================================================== */
+
+:root {
+
+   /* ── Layer 1: Color Primitives ──────────────────────────────────────────── */
+   --elm-purple-900: #100d2e;
+   --elm-purple-800: #1e1a4a;
+   --elm-purple-700: #2a2060;
+   --elm-purple-600: #4540d0;
+   --elm-purple-500: #635bff;
+   /* Brand Purple — primary */
+   --elm-purple-400: #9b95ff;
+   --elm-purple-300: #a89fff;
+   --elm-purple-200: #c4beff;
+   --elm-purple-100: #ece9ff;
+   --elm-purple-50: #f5f4ff;
+
+   --elm-pink-700: #b2002c;
+   --elm-pink-600: #d02a5c;
+   --elm-pink-500: #ff3e76;
+   /* Brand Pink — secondary */
+   --elm-pink-400: #ff7aa3;
+   --elm-pink-100: #ffe0ea;
+
+   --elm-emerald-700: #0a9468;
+   --elm-emerald-600: #0da271;
+   --elm-emerald-500: #10b981;
+
+   --elm-amber-600: #d48809;
+   --elm-amber-500: #f59e0b;
+
+   --elm-indigo-700: #3d38c0;
+   --elm-indigo-600: #4540d0;
+   --elm-indigo-500: #4e47e0;
+
+   /* Neutrals — for dark surfaces */
+   --elm-neutral-900: #0a0820;
+   --elm-neutral-800: #0b0920;
+   --elm-neutral-700: #0e0b29;
+   --elm-neutral-600: #1a1545;
+   --elm-neutral-100: #f8f9fa;
+   --elm-neutral-50: #ffffff;
+
+   /* Slate — borders and secondary text on light bg */
+   --elm-slate-600: #475569;
+   --elm-slate-400: #cbd5e1;
+   --elm-slate-300: #e2e8f0;
+
+   /* ── Layer 1: Spacing Primitives (maps to Bootstrap $spacer = 1rem) ────── */
+   --elm-space-1: 0.25rem;
+   /*  4px */
+   --elm-space-2: 0.5rem;
+   /*  8px */
+   --elm-space-3: 0.75rem;
+   /* 12px */
+   --elm-space-4: 1rem;
+   /* 16px */
+   --elm-space-5: 1.25rem;
+   /* 20px */
+   --elm-space-6: 1.5rem;
+   /* 24px */
+   --elm-space-8: 2rem;
+   /* 32px */
+   --elm-space-10: 2.5rem;
+   /* 40px */
+   --elm-space-12: 3rem;
+   /* 48px */
+   --elm-space-16: 4rem;
+   /* 64px */
+
+   /* ── Layer 1: Radius Primitives ─────────────────────────────────────────── */
+   --elm-radius-xs: 0.25rem;
+   /*  4px */
+   --elm-radius-sm: 0.375rem;
+   /*  6px */
+   --elm-radius-md: 0.5rem;
+   /*  8px */
+   --elm-radius-lg: 0.75rem;
+   /* 12px */
+   --elm-radius-xl: 1rem;
+   /* 16px */
+   --elm-radius-2xl: 1.5rem;
+   /* 24px */
+   --elm-radius-3xl: 2rem;
+   /* 32px */
+   --elm-radius-full: 9999px;
+
+   /* ── Layer 1: Shadow Primitives ─────────────────────────────────────────── */
+   --elm-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+   --elm-shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+   --elm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+   --elm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+   --elm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.10), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+   --elm-shadow-brand-sm: 0 4px 12px rgba(99, 91, 255, 0.25);
+   --elm-shadow-brand-md: 0 8px 24px rgba(99, 91, 255, 0.35);
+   --elm-shadow-brand-card: 0 10px 30px -5px rgba(99, 91, 255, 0.08);
+
+   /* ── Layer 1: Typography Scale ──────────────────────────────────────────── */
+   --elm-text-xs: 0.72rem;
+   /* 11.5px — labels, badges    */
+   --elm-text-sm: 0.82rem;
+   /* 13px   — form labels, UI   */
+   --elm-text-base: 1rem;
+   /* 16px   — body              */
+   --elm-text-md: 1.125rem;
+   /* 18px                       */
+   --elm-text-lg: 1.25rem;
+   /* 20px                       */
+   --elm-text-xl: 1.5rem;
+   /* 24px                       */
+   --elm-text-2xl: 2rem;
+   /* 32px   — section headers   */
+   --elm-text-3xl: 2.5rem;
+   /* 40px   — hero              */
+   --elm-text-4xl: 3rem;
+   /* 48px   — display           */
+
+   /* ── Layer 1: Motion Primitives ─────────────────────────────────────────── */
+   --elm-duration-fast: 0.15s;
+   --elm-duration-base: 0.2s;
+   --elm-duration-slow: 0.3s;
+   --elm-duration-slower: 0.35s;
+   --elm-ease-standard: ease;
+   --elm-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+   --elm-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+   /* ── Layer 2: Semantic Tokens ───────────────────────────────────────────────
+       light-dark(light-value, dark-value) requires color-scheme: light dark.
+       Changing document.documentElement.style.colorScheme to 'light' or 'dark'
+       is the ONLY toggle needed — all tokens resolve automatically.
+       ──────────────────────────────────────────────────────────────────────── */
+   color-scheme: light dark;
+
+   /* Text */
+   --elm-text-default: light-dark(var(--elm-purple-800), #e8e6ff);
+   --elm-text-muted: light-dark(#6b63c9, #9b95cc);
+   --elm-text-subtle: light-dark(var(--elm-purple-300), var(--elm-purple-400));
+   --elm-text-inverse: light-dark(var(--elm-neutral-50), var(--elm-purple-900));
+   --elm-text-brand: light-dark(var(--elm-purple-500), var(--elm-purple-400));
+   --elm-text-accent: light-dark(var(--elm-pink-500), var(--elm-pink-400));
+   --elm-text-success: light-dark(var(--elm-emerald-500), var(--elm-emerald-500));
+   --elm-text-warning: light-dark(var(--elm-amber-600), var(--elm-amber-500));
+   --elm-text-danger: light-dark(var(--elm-pink-500), var(--elm-pink-400));
+
+   /* Surface */
+   --elm-surface-page: light-dark(var(--elm-purple-50), var(--elm-neutral-900));
+   --elm-surface-default: light-dark(var(--elm-neutral-50), var(--elm-neutral-700));
+   --elm-surface-raised: light-dark(var(--elm-neutral-100), var(--elm-neutral-600));
+   --elm-surface-code: light-dark(#ffffff, #0b0920);
+   --elm-surface-sidebar: var(--elm-purple-900);
+   /* always dark — intentional */
+
+   /* Border */
+   --elm-border-default: light-dark(var(--elm-slate-300), rgba(255, 255, 255, 0.1));
+   --elm-border-subtle: light-dark(rgba(99, 91, 255, 0.12), rgba(99, 91, 255, 0.18));
+   --elm-border-strong: light-dark(var(--elm-slate-400), rgba(255, 255, 255, 0.2));
+   --elm-border-brand: var(--elm-purple-500);
+
+   /* Action — intentionally NOT light-dark; these stay consistent across modes */
+   --elm-action-primary: var(--elm-purple-500);
+   --elm-action-secondary: var(--elm-pink-500);
+   --elm-action-success: var(--elm-emerald-500);
+   --elm-action-warning: var(--elm-amber-500);
+   --elm-action-danger: var(--elm-pink-500);
+   --elm-action-info: var(--elm-purple-500);
+   --elm-action-dark: var(--elm-purple-900);
+
+   /* Focus */
+   --elm-focus-ring-color: rgba(99, 91, 255, 0.3);
+   --elm-focus-ring-width: 3px;
+
+   /* ── Layer 3: Bootstrap Bridge ──────────────────────────────────────────────
+       Maps BS5 custom properties to elm-* tokens so every Bootstrap utility
+       class (btn-primary, bg-primary, text-primary, etc.) uses our brand.
+       ──────────────────────────────────────────────────────────────────────── */
+   --bs-primary: var(--elm-action-primary);
+   --bs-primary-rgb: 99, 91, 255;
+   --bs-primary-bg-subtle: var(--elm-purple-100);
+   --bs-primary-border-subtle: var(--elm-purple-200);
+   --bs-primary-text-emphasis: var(--elm-action-primary);
+
+   --bs-secondary: var(--elm-action-secondary);
+   --bs-secondary-rgb: 255, 62, 118;
+   --bs-secondary-bg-subtle: var(--elm-pink-100);
+   --bs-secondary-border-subtle: var(--elm-pink-400);
+   --bs-secondary-text-emphasis: var(--elm-action-secondary);
+
+   --bs-success: var(--elm-action-success);
+   --bs-success-rgb: 16, 185, 129;
+   --bs-warning: var(--elm-action-warning);
+   --bs-warning-rgb: 245, 158, 11;
+   --bs-danger: var(--elm-action-danger);
+   --bs-danger-rgb: 255, 62, 118;
+   --bs-info: var(--elm-action-info);
+   --bs-info-rgb: 99, 91, 255;
+   --bs-dark: var(--elm-action-dark);
+   --bs-dark-rgb: 16, 13, 46;
+
+   --bs-body-color: var(--elm-text-default);
+   --bs-body-bg: var(--elm-surface-page);
+   --bs-body-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+   --bs-link-color: var(--elm-action-primary);
+   --bs-link-color-rgb: 99, 91, 255;
+   --bs-link-hover-color: var(--elm-indigo-500);
+
+   --bs-border-radius: var(--elm-radius-lg);
+   --bs-border-radius-sm: var(--elm-radius-md);
+   --bs-border-radius-lg: var(--elm-radius-xl);
+   --bs-border-radius-xl: var(--elm-radius-2xl);
+   --bs-border-radius-2xl: var(--elm-radius-3xl);
+
+   --bs-focus-ring-color: var(--elm-focus-ring-color);
+   --bs-focus-ring-width: var(--elm-focus-ring-width);
+
+   /* Button variant bridge — scoped --bs-btn-* per variant */
+
+   /* ── Layer 4: Component Tokens ──────────────────────────────────────────── */
+
+   /* Layout */
+   --elm-sidebar-width: 280px;
+   --elm-sidebar-bg: var(--elm-surface-sidebar);
+
+   /* Sidebar chrome — always-dark surface, so raw white alphas are intentional.
+      Named here so they're not "magic numbers" scattered across styles.css.   */
+   --elm-sidebar-border: rgba(255, 255, 255, 0.08);
+   /* footer divider   */
+   --elm-sidebar-border-faint: rgba(255, 255, 255, 0.1);
+   /* heading borders  */
+   --elm-sidebar-text-faint: rgba(255, 255, 255, 0.55);
+   /* resting icon/text */
+   --elm-sidebar-hover-bg: rgba(255, 255, 255, 0.08);
+   /* footer btn hover  */
+
+   /* Sidebar nav item highlight — brand purple at low opacity */
+   --elm-sidebar-item-bg: rgba(99, 91, 255, 0.16);
+   /* hover fill        */
+   --elm-sidebar-item-bg-active: rgba(99, 91, 255, 0.22);
+   /* active fill       */
+   --elm-sidebar-item-bloom: rgba(99, 91, 255, 0.45);
+   /* cursor bloom      */
+
+   /* Focus ring */
+   --elm-focus-ring-shadow: 0 0 0 3px var(--elm-focus-ring-color);
+
+   /* Motion (aliased from primitives for easy swapping) */
+   --elm-transition-speed: var(--elm-duration-slow);
+
+   /* Buttons */
+   --elm-btn-radius: var(--elm-radius-lg);
+   --elm-btn-transition: all var(--elm-duration-slow) var(--elm-ease-bounce);
+   --elm-btn-shadow-brand: var(--elm-shadow-brand-sm);
+
+   /* Inputs */
+   --elm-input-height: 2.75rem;
+   --elm-input-padding-y: 0.75rem;
+   --elm-input-padding-x: 1rem;
+   --elm-input-radius: var(--elm-radius-lg);
+   --elm-input-border: var(--elm-border-default);
+   --elm-input-focus-border: var(--elm-border-brand);
+
+   /* Cards */
+   --elm-card-padding: var(--elm-space-6);
+   --elm-card-radius: var(--elm-radius-xl);
+   --elm-card-border: var(--elm-border-subtle);
+   --elm-card-shadow: var(--elm-shadow-brand-card);
+
+   /* Code Panel */
+   --elm-code-panel-bg: var(--elm-surface-code);
+   --elm-code-panel-header: var(--elm-surface-raised);
+   --elm-code-panel-border: var(--elm-border-default);
+
+   /* Playground */
+   --elm-comp-props-bg: var(--elm-surface-default);
+   --elm-comp-props-header: var(--elm-surface-raised);
+   --elm-comp-preview-bg: light-dark(#f8f7ff, var(--elm-neutral-700));
+}

@@ -1,0 +1,10 @@
+[
+    {
+        "name": "button",
+        "path": "components/button/"
+    },
+    {
+        "name": "dropdown",
+        "path": "components/dropdown/"
+    }
+]

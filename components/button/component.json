@@ -1,0 +1,74 @@
+{
+    "version": 1,
+    "title": "Button",
+    "description": "<code>&lt;elm-button&gt;</code> — Bootstrap-styled button with optional icon support.",
+    "dependencies": [],
+    "template": "<elm-button {{btn-style}} {{size}} {{disabled}} {{icon}} {{icon-pos}} {{label}}></elm-button>",
+    "props": [
+        {
+            "id": "label",
+            "label": "Label",
+            "type": "text",
+            "attribute": "label",
+            "default": "Click Me"
+        },
+        {
+            "id": "btn-style",
+            "label": "Style",
+            "type": "select",
+            "attribute": "btn-style",
+            "default": "btn-primary",
+            "options": [
+                { "label": "Primary",          "value": "btn-primary" },
+                { "label": "Secondary",         "value": "btn-secondary" },
+                { "label": "Success",           "value": "btn-success" },
+                { "label": "Danger",            "value": "btn-danger" },
+                { "label": "Warning",           "value": "btn-warning" },
+                { "label": "Info",              "value": "btn-info" },
+                { "label": "Light",             "value": "btn-light" },
+                { "label": "Dark",              "value": "btn-dark" },
+                { "label": "Outline Primary",   "value": "btn-outline-primary" },
+                { "label": "Outline Secondary", "value": "btn-outline-secondary" },
+                { "label": "Outline Danger",    "value": "btn-outline-danger" },
+                { "label": "Link",              "value": "btn-link" }
+            ]
+        },
+        {
+            "id": "size",
+            "label": "Size",
+            "type": "select",
+            "attribute": "size",
+            "default": "",
+            "options": [
+                { "label": "Default", "value": "" },
+                { "label": "Large",   "value": "lg" },
+                { "label": "Small",   "value": "sm" }
+            ]
+        },
+        {
+            "id": "disabled",
+            "label": "Disabled",
+            "type": "boolean",
+            "attribute": "disabled",
+            "default": false
+        },
+        {
+            "id": "icon",
+            "label": "Icon class",
+            "type": "text",
+            "attribute": "icon",
+            "default": ""
+        },
+        {
+            "id": "icon-pos",
+            "label": "Icon position",
+            "type": "select",
+            "attribute": "icon-pos",
+            "default": "start",
+            "options": [
+                { "label": "Start", "value": "start" },
+                { "label": "End",   "value": "end" }
+            ]
+        }
+    ]
+}

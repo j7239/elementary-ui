@@ -1,0 +1,539 @@
+<div class="max-w-content">
+
+    <!-- Feature highlight cards -->
+    <div class="row g-4 pb-4 mb-3">
+        <div class="col-md-4">
+            <div class="docs-feature-card">
+                <div class="docs-feature-icon">
+                    <i class="fal fa-paintbrush"></i>
+                </div>
+                <h6 class="fw-bold mt-3 mb-2">Fully Branded</h6>
+                <p class="small mb-0" style="color: var(--elm-text-muted);">Your SCSS layer is yours to own. Customize every token, color, and font. Core updates never touch it.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="docs-feature-card">
+                <div class="docs-feature-icon">
+                    <i class="fal fa-sliders"></i>
+                </div>
+                <h6 class="fw-bold mt-3 mb-2">Live Playground</h6>
+                <p class="small mb-0" style="color: var(--elm-text-muted);">Write a <code>component.json</code> for any component and get an interactive props editor and live preview instantly.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="docs-feature-card">
+                <div class="docs-feature-icon">
+                    <i class="fal fa-shield-check"></i>
+                </div>
+                <h6 class="fw-bold mt-3 mb-2">Safe Updates</h6>
+                <p class="small mb-0" style="color: var(--elm-text-muted);">Bump the core version freely. Your brand config and component configs are separate and never overwritten.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section intro -->
+    <div class="mb-3 pb-2">
+        <h2 class="fw-bold mt-2">Getting Started</h2>
+        <p class="lead mb-0" style="color: var(--elm-text-muted);">Set up your branded instance of {{brandName}}, your own style guide and component playground powered by the core library.</p>
+    </div>
+
+    <!-- ─── INSTALLATION ─────────────────────────────────────── -->
+    <div class="mb-4 pb-2 border-bottom mt-4">
+        <h3 class="fw-bold mb-1">Installation</h3>
+        <p class="small mb-0" style="color: var(--elm-text-muted);">Get the package and scaffold your brand layer.</p>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="docs-step mb-5">
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="docs-step-num">1</div>
+            <h4 class="fw-bold mb-0">Install {{distName}}</h4>
+        </div>
+        <p class="mb-3">Install the package as a dependency. This gives you the compiled component bundle in <code>dist/</code> and the base brand scaffold in <code>component-assets/</code>.</p>
+        <div class="docs-code-block mb-4">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">bash</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>npm install {{distName}}</code></pre>
+        </div>
+        <p class="small mb-0" style="color: var(--elm-text-muted);">You also need <strong>Sass</strong> available to compile your brand CSS. If you don't have it globally, add it as a dev dependency.</p>
+        <div class="docs-code-block mt-3">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">bash</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>npm install --save-dev sass</code></pre>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="docs-step mb-5">
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="docs-step-num">2</div>
+            <h4 class="fw-bold mb-0">Copy Your Brand Layer</h4>
+        </div>
+        <p class="mb-3">Copy <code>component-assets/</code> from the installed package into the root of your project. This is a <strong>one-time copy</strong>. It becomes your owned brand layer and is never touched by future {{distName}} updates.</p>
+        <div class="docs-code-block mb-4">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">bash</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>cp -r node_modules/{{distName}}/component-assets ./component-assets</code></pre>
+        </div>
+        <p class="small mb-2" style="color: var(--elm-text-muted);">After copying, your project should include these directories:</p>
+        <div class="docs-code-block">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">directory</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>your-project/
+├── component-assets/        ← your brand layer (owned by you)
+│   ├── scss/
+│   │   ├── main.scss        ← your styles entry point (tokens + imports)
+│   │   └── ...
+│   ├── webfonts/            ← icon fonts
+│   └── js/
+├── components/              ← your component.json configs (you create these)
+├── node_modules/
+│   └── {{distName}}/
+│       └── dist/            ← compiled JS bundle (from npm, read-only)
+└── package.json</code></pre>
+        </div>
+    </div>
+
+    <!-- ─── CONFIGURATION ─────────────────────────────────────── -->
+    <div class="mb-4 pb-2 border-bottom mt-2">
+        <h3 class="fw-bold mb-1">Configuration</h3>
+        <p class="small mb-0" style="color: var(--elm-text-muted);">Apply your brand identity to the SCSS and playground settings.</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="docs-step mb-5">
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="docs-step-num">3</div>
+            <h4 class="fw-bold mb-0">Configure Your Brand</h4>
+        </div>
+        <p class="mb-3">Open <code>component-assets/scss/main.scss</code>. This is the single file that controls your visual identity. Set your Bootstrap variable overrides above the import and add any custom styles below it.</p>
+        <div class="docs-code-block mb-4">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">main.scss</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>// Brand overrides - set these before the Bootstrap import
+$primary:           #0072ce;
+$secondary:         #6c757d;
+$font-family-base:  'Inter', sans-serif;
+$font-size-base:    0.875rem;
+
+@import 'bootstrap/scss/bootstrap';
+
+// Your custom styles below</code></pre>
+        </div>
+        <p class="mb-3">Then update <code>brand.json</code> in your project root. This controls the playground's identity: the name shown in the sidebar and the built file names.</p>
+        <div class="docs-code-block">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">brand.json</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>{
+  "distName": "my-brand-ui",
+  "globalName": "MyBrandUI",
+  "title": "My Brand Design System",
+  "version": "1.0.0",
+  "hideHero": false,
+  "hideWelcome": false
+}</code></pre>
+        </div>
+    </div>
+
+    <!-- ─── BUILD & RUN ─────────────────────────────────────── -->
+    <div class="mb-4 pb-2 border-bottom mt-2">
+        <h3 class="fw-bold mb-1">Build & Run</h3>
+        <p class="small mb-0" style="color: var(--elm-text-muted);">Compile your branded CSS and launch the playground.</p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="docs-step mb-5">
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="docs-step-num">4</div>
+            <h4 class="fw-bold mb-0">Build Your CSS & Launch</h4>
+        </div>
+        <p class="mb-3">Add these scripts to your <code>package.json</code> to compile your brand SCSS into CSS and start the playground server.</p>
+        <div class="docs-code-block mb-4">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">package.json</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>"scripts": {
+  "build:css": "sass --style compressed --quiet-deps component-assets/scss/main.scss dist/css/styles.min.css",
+  "watch:css": "sass --watch --quiet-deps component-assets/scss/main.scss dist/css/styles.min.css",
+  "start": "python3 -m http.server 8000"
+}</code></pre>
+        </div>
+        <p class="mb-3">Run the build, then start the server:</p>
+        <div class="docs-code-block">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">bash</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>npm run build:css
+npm start
+# → http://localhost:8000</code></pre>
+        </div>
+    </div>
+
+    <!-- ─── COMPONENT PLAYGROUND ─────────────────────────────── -->
+    <div class="mb-4 pb-2 border-bottom mt-2">
+        <h3 class="fw-bold mb-1">Component Playground</h3>
+        <p class="small mb-0" style="color: var(--elm-text-muted);">Document your components with an interactive props editor and live preview.</p>
+    </div>
+
+    <!-- AI callout -->
+    <div class="p-3 rounded border mb-5" style="background-color: var(--elm-bg-subtle);">
+        <p class="fw-bold mb-1"><i class="fal fa-robot me-2 text-primary"></i>Building with AI</p>
+        <p class="small mb-0" style="color: var(--elm-text-muted);">When generating <code>component.json</code> configs with an AI assistant, provide it with <code>docs/COMPONENTS.md</code> alongside your component's JS source. That file contains the full schema reference (prop types, template format, and dependency loading) so the output follows the correct patterns.</p>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="docs-step mb-5">
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="docs-step-num">5</div>
+            <h4 class="fw-bold mb-0">Add a Component Config</h4>
+        </div>
+        <p class="mb-3">For each component you want in the playground, create a <code>component.json</code> file inside that component's directory. The playground reads this file to generate the live preview and interactive props panel.</p>
+        <div class="docs-code-block mb-4">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">component.json</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>{
+  "version": 1,
+  "title": "Button",
+  "description": "A primary action button.",
+  "template": "&lt;my-button btn-style=\"btn-primary\" label=\"Click Me\"&gt;&lt;/my-button&gt;",
+  "props": [
+    {
+      "id": "label",
+      "label": "Label",
+      "type": "text",
+      "attribute": "label",
+      "default": "Click Me"
+    },
+    {
+      "id": "btn-style",
+      "label": "Style",
+      "type": "select",
+      "attribute": "btn-style",
+      "default": "btn-primary",
+      "options": [
+        { "label": "Primary", "value": "btn-primary" },
+        { "label": "Secondary", "value": "btn-secondary" }
+      ]
+    }
+  ]
+}</code></pre>
+        </div>
+
+        <details class="p-3 rounded border" style="background-color: var(--elm-bg-subtle);">
+            <summary class="fw-bold text-primary d-inline-flex align-items-center"
+                style="cursor: pointer; user-select: none; list-style: none;">
+                <i class="fal fa-caret-right me-2"></i>
+                Component dependencies
+            </summary>
+            <style>
+                details summary i { transition: transform 0.2s ease; }
+                details[open] summary i { transform: rotate(90deg); }
+            </style>
+            <p class="mt-3 mb-3 text-muted small">If a component depends on another to render (for example, a dropdown that uses a button internally), list those component paths in a <code>dependencies</code> array. The playground loads them before rendering the preview.</p>
+            <div class="docs-code-block">
+                <div class="docs-code-bar">
+                    <div class="d-flex gap-1 align-items-center">
+                        <span class="docs-dot docs-dot-red"></span>
+                        <span class="docs-dot docs-dot-yellow"></span>
+                        <span class="docs-dot docs-dot-green"></span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="docs-code-lang">component.json</span>
+                        <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                    </div>
+                </div>
+                <pre class="m-0 p-4"><code>{
+  "version": 1,
+  "title": "Dropdown",
+  "dependencies": ["components/button/"],
+  "template": "...",
+  "props": [...]
+}</code></pre>
+            </div>
+        </details>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="docs-step mb-5">
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="docs-step-num">6</div>
+            <h4 class="fw-bold mb-0">Register in the Sidebar</h4>
+        </div>
+        <p class="mb-3">Add your component to <code>components/manifest.json</code>. The playground reads this file to build the sidebar navigation. Without an entry here, the component won't appear.</p>
+        <div class="docs-code-block mb-4">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">manifest.json</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>[
+  { "name": "button", "path": "components/button/" },
+  { "name": "modal",  "path": "components/modal/"  }
+]</code></pre>
+        </div>
+        <p class="small mb-2" style="color: var(--elm-text-muted);">To group related components under a collapsible heading, use a <code>children</code> array:</p>
+        <div class="docs-code-block">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">manifest.json</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>[
+  {
+    "name": "Form",
+    "children": [
+      { "name": "input",    "path": "components/input/"    },
+      { "name": "checkbox", "path": "components/checkbox/" }
+    ]
+  },
+  { "name": "button", "path": "components/button/" }
+]</code></pre>
+        </div>
+    </div>
+
+    <!-- ─── USING IN YOUR APP ─────────────────────────────────── -->
+    <div class="mb-4 pb-2 border-bottom mt-2">
+        <h3 class="fw-bold mb-1">Using Components in Your App</h3>
+        <p class="small mb-0" style="color: var(--elm-text-muted);">Load the built library into any page or app.</p>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="docs-step mb-5">
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="docs-step-num">7</div>
+            <h4 class="fw-bold mb-0">Load the Library</h4>
+        </div>
+        <p class="mb-4">Components self-register as custom elements when the bundle loads. <strong>Bootstrap CSS is bundled in automatically</strong>, so no separate stylesheet is required. Load your compiled brand CSS alongside it.</p>
+
+        <h6 class="fw-bold mb-2">Via script tag (UMD)</h6>
+        <p class="small mb-3" style="color: var(--elm-text-muted);">Best for plain HTML pages. Drop the file in and components are immediately available.</p>
+        <div class="docs-code-block mb-4">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">html</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>&lt;link rel="stylesheet" href="dist/css/styles.min.css"&gt;
+&lt;script src="node_modules/{{distName}}/dist/{{distName}}.umd.js"&gt;&lt;/script&gt;
+
+&lt;!-- Components are now available --&gt;
+&lt;your-button variant="primary" label="Save"&gt;&lt;/your-button&gt;</code></pre>
+        </div>
+
+        <h6 class="fw-bold mb-2">Via ES module</h6>
+        <p class="small mb-3" style="color: var(--elm-text-muted);">Best when bundling with Vite, Webpack, or another bundler.</p>
+        <div class="docs-code-block mb-4">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">javascript</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>// All components self-register as a side effect
+import '{{distName}}';
+
+// Or import specific components by name
+import { MyButton, MyModal } from '{{distName}}';</code></pre>
+        </div>
+
+        <details class="p-3 rounded border" style="background-color: var(--elm-bg-subtle);">
+            <summary class="fw-bold text-primary d-inline-flex align-items-center"
+                style="cursor: pointer; user-select: none; list-style: none;">
+                <i class="fal fa-caret-right me-2"></i>
+                Enabling Dropdown and Tooltip support
+            </summary>
+            <p class="mt-3 mb-3 text-muted small">Components that use Bootstrap JS (dropdowns, tooltips) check for <code>window.bootstrap</code> at connect time. If it isn't present yet, they wait for a <code>bootstrap:ready</code> event. Load Bootstrap JS and dispatch that event after it initializes:</p>
+            <div class="docs-code-block mb-3">
+                <div class="docs-code-bar">
+                    <div class="d-flex gap-1 align-items-center">
+                        <span class="docs-dot docs-dot-red"></span>
+                        <span class="docs-dot docs-dot-yellow"></span>
+                        <span class="docs-dot docs-dot-green"></span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="docs-code-lang">html</span>
+                        <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                    </div>
+                </div>
+                <pre class="m-0 p-4"><code>&lt;script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  onload="document.dispatchEvent(new Event('bootstrap:ready'))"&gt;
+&lt;/script&gt;
+&lt;script src="node_modules/{{distName}}/dist/{{distName}}.umd.js"&gt;&lt;/script&gt;</code></pre>
+            </div>
+            <p class="small mb-0 text-muted">All other components are unaffected. Only include Bootstrap JS if your components use dropdowns or tooltips.</p>
+        </details>
+    </div>
+
+    <!-- ─── STAYING UP TO DATE ────────────────────────────────── -->
+    <div class="mb-4 pb-2 border-bottom mt-2">
+        <h3 class="fw-bold mb-1">Staying Up to Date</h3>
+        <p class="small mb-0" style="color: var(--elm-text-muted);">Pull in core improvements without disrupting your brand or component configs.</p>
+    </div>
+
+    <!-- Step 8 -->
+    <div class="docs-step mb-5">
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="docs-step-num">8</div>
+            <h4 class="fw-bold mb-0">Update the Core</h4>
+        </div>
+        <p class="mb-3">Updating {{distName}} only changes the JS bundle in <code>node_modules/</code>. Your <code>component-assets/</code>, <code>brand.json</code>, and <code>components/</code> configs are untouched.</p>
+        <div class="docs-code-block mb-4">
+            <div class="docs-code-bar">
+                <div class="d-flex gap-1 align-items-center">
+                    <span class="docs-dot docs-dot-red"></span>
+                    <span class="docs-dot docs-dot-yellow"></span>
+                    <span class="docs-dot docs-dot-green"></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="docs-code-lang">bash</span>
+                    <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                </div>
+            </div>
+            <pre class="m-0 p-4"><code>npm update {{distName}}</code></pre>
+        </div>
+
+        <div class="p-3 rounded border" style="background-color: var(--elm-bg-subtle);">
+            <p class="fw-bold mb-2">When to review your SCSS</p>
+            <p class="small mb-3" style="color: var(--elm-text-muted);">{{brandName}} follows semantic versioning. Use this as a guide for how much review each update needs:</p>
+            <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                    <div class="p-3 rounded border h-100" style="background: var(--elm-surface-default);">
+                        <p class="fw-bold mb-1 small">Patch <span class="text-muted fw-normal">1.0.x</span></p>
+                        <p class="small mb-0" style="color: var(--elm-text-muted);">Bug fixes only. No SCSS review needed, update freely.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 rounded border h-100" style="background: var(--elm-surface-default);">
+                        <p class="fw-bold mb-1 small">Minor <span class="text-muted fw-normal">1.x.0</span></p>
+                        <p class="small mb-0" style="color: var(--elm-text-muted);">New components or variants added. Check the changelog for any new SCSS variables.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 rounded border h-100" style="background: var(--elm-surface-default);">
+                        <p class="fw-bold mb-1 small">Major <span class="text-muted fw-normal">x.0.0</span></p>
+                        <p class="small mb-0" style="color: var(--elm-text-muted);">Breaking changes. Diff your SCSS against the new base and review the changelog.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="small mb-2" style="color: var(--elm-text-muted);">For major updates, diff the new base SCSS against your version to catch anything new:</p>
+            <div class="docs-code-block">
+                <div class="docs-code-bar">
+                    <div class="d-flex gap-1 align-items-center">
+                        <span class="docs-dot docs-dot-red"></span>
+                        <span class="docs-dot docs-dot-yellow"></span>
+                        <span class="docs-dot docs-dot-green"></span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="docs-code-lang">bash</span>
+                        <button class="docs-copy-btn" aria-label="Copy code"><i class="fal fa-clipboard"></i></button>
+                    </div>
+                </div>
+                <pre class="m-0 p-4"><code>diff -r node_modules/{{distName}}/component-assets/scss ./component-assets/scss</code></pre>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,90 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Generate Manifests",
+            "type": "shell",
+            "command": "npm run build:manifests",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "silent",
+                "panel": "dedicated",
+                "group": "servers"
+            }
+        },
+        {
+            "label": "Generate CSS",
+            "type": "shell",
+            "command": "npm run build:css",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "silent",
+                "panel": "dedicated",
+                "group": "servers"
+            }
+        },
+        {
+            "label": "Watch CSS",
+            "type": "shell",
+            "command": "npm run watch:css",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "silent",
+                "panel": "dedicated",
+                "group": "servers"
+            }
+        },
+        {
+            "label": "Build All",
+            "dependsOn": [
+                "Generate Manifests",
+                "Generate CSS"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Start Python Server 8080",
+            "type": "shell",
+            "command": "python3 -m http.server 8080",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "isBackground": true,
+            "dependsOn": "Build All",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "group": "servers"
+            }
+        },
+        {
+            "label": "Stop Python Server 8080",
+            "type": "shell",
+            "command": "lsof -ti tcp:8080 | xargs kill -9 2>/dev/null; echo 'Server on port 8080 stopped.'",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "group": "servers"
+            }
+        }
+    ]
+}
