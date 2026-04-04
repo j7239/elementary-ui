@@ -1,5 +1,5 @@
-<p align="center">
-  <img src="elementary-assets/elementary-logo.png" alt="Elementary UI" width="200">
+<p align="left">
+  <img src="elementary-assets/elementary-logo-light.png" alt="Elementary UI" width="200">
 </p>
 
 # elementary-ui
