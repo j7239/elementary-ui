@@ -1,6 +1,6 @@
 # elementary-ui
 
-A component playground and distributable web component library. Fork it, brand it, fill it with your components, and ship a living style guide and compiled JS bundle.
+Built primarily for Shadow DOM based HTML web components. Brand your library, fill it with your components, and manage your team’s component system from a single place.
 
 ## Quick Start
 
