@@ -2,7 +2,9 @@
   <img src="elementary-assets/elementary-logo-light.png" alt="Elementary UI" width="250">
 </p>
 
-Built primarily for Shadow DOM based HTML web components. Brand your library, fill it with your components, and manage your team’s component system from a single place.
+Built primarily for Shadow DOM based HTML web components. Brand your library, fill it with your components, and manage your team’s component system from a single place. 
+Give your components a home for stakeholders to view your props and test out the components. 
+Allow your favorite AI agents a centeralized folder to access your components and a direct location to build/save your prototypes.
 
 ## Quick Start
 
