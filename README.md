@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="elementary-assets/elementary-logo.png" alt="Elementary UI" width="200">
+</p>
+
 # elementary-ui
 
 Built primarily for Shadow DOM based HTML web components. Brand your library, fill it with your components, and manage your team’s component system from a single place.
