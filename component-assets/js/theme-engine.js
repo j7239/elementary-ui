@@ -1,8 +1,8 @@
 (function () {
-    const bootstrapSheet = new CSSStyleSheet();
+    const elmSheet = new CSSStyleSheet();
     const faSheet = new CSSStyleSheet();
 
-    window.sharedStyles = [bootstrapSheet, faSheet];
+    window.sharedStyles = [elmSheet, faSheet];
 
     async function loadCSS(url, sheet) {
         try {
@@ -29,6 +29,8 @@
     bsScript.addEventListener('load', () => document.dispatchEvent(new Event('bootstrap:ready')));
     document.head.appendChild(bsScript);
 
-    loadCSS('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', bootstrapSheet);
+    loadCSS('dist/css/styles.min.css', elmSheet);
     loadCSS('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css', faSheet);
+
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, elmSheet, faSheet];
 })();

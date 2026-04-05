@@ -1,8 +1,8 @@
 {
-    "distName": "elementary-ui",
+    "distName": "elm-ui",
     "globalName": "ElementaryUI",
-    "title": "",
-    "version": "",
+    "title": "Elementary UI Library",
+    "version": "1.0.0",
     "hideHero": false,
     "hideWelcome": false
 }

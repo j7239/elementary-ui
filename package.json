@@ -1,19 +1,19 @@
 {
-    "name": "elementary-ui",
+    "name": "elm-ui",
     "version": "1.0.0",
     "description": "Elementary UI components library",
-    "main": "./dist/elementary-ui.umd.js",
-    "module": "./dist/elementary-ui.es.js",
+    "main": "./dist/elm-ui.umd.js",
+    "module": "./dist/elm-ui.es.js",
     "exports": {
         ".": {
-            "import": "./dist/elementary-ui.es.js",
-            "require": "./dist/elementary-ui.umd.js"
+            "import": "./dist/elm-ui.es.js",
+            "require": "./dist/elm-ui.umd.js"
         }
     },
     "scripts": {
         "build:manifests": "node build.js",
-        "build:css": "sass --style compressed --quiet-deps --silence-deprecation=color-functions,global-builtin component-assets/scss/main.scss dist/css/styles.min.css",
-        "watch:css": "sass --watch --quiet-deps --silence-deprecation=color-functions,global-builtin component-assets/scss/main.scss dist/css/styles.min.css",
+        "build:css": "sass --style compressed --quiet-deps --load-path=node_modules --silence-deprecation=color-functions,global-builtin,import component-assets/scss/main.scss dist/css/styles.min.css",
+        "watch:css": "sass --watch --quiet-deps --load-path=node_modules --silence-deprecation=color-functions,global-builtin,import component-assets/scss/main.scss dist/css/styles.min.css",
         "build:lib": "vite build",
         "build": "npm run build:manifests && npm run build:lib",
         "postbuild": "node scripts/sync-pkg.js",

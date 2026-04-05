@@ -1,0 +1,44 @@
+// Entry point — compiled by "npm run build:css"
+// Override Bootstrap variables before the import, add your own styles after.
+// Values sourced from elementary-assets/css/tokens.css
+
+// ── Theme Colors ────────────────────────────────────────────────────────────
+$primary:       #635bff;  // elm-purple-500
+$secondary:     #ff3e76;  // elm-pink-500
+$success:       #10b981;  // elm-emerald-500
+$warning:       #f59e0b;  // elm-amber-500
+$danger:        #ff3e76;  // elm-pink-500
+$info:          #635bff;  // elm-purple-500
+$dark:          #100d2e;  // elm-purple-900
+$light:         #f5f4ff;  // elm-purple-50
+
+// ── Typography ──────────────────────────────────────────────────────────────
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-size-base:   1rem;       // elm-text-base (16px)
+$small-font-size:  0.82rem;    // elm-text-sm   (13px)
+
+// ── Border Radius ───────────────────────────────────────────────────────────
+$border-radius:      0.75rem;  // elm-radius-lg
+$border-radius-sm:   0.5rem;   // elm-radius-md
+$border-radius-lg:   1rem;     // elm-radius-xl
+$border-radius-xl:   1.5rem;   // elm-radius-2xl
+$border-radius-xxl:  2rem;     // elm-radius-3xl
+$border-radius-pill: 9999px;   // elm-radius-full
+
+// ── Spacing ─────────────────────────────────────────────────────────────────
+$spacer: 1rem;  // elm-space-4
+
+// ── Focus ───────────────────────────────────────────────────────────────────
+$focus-ring-width:   3px;
+$focus-ring-color:   rgba(99, 91, 255, 0.3);
+
+// ── Links ───────────────────────────────────────────────────────────────────
+$link-color:       $primary;
+$link-hover-color: #4e47e0;    // elm-indigo-500
+
+// ── Shadows ─────────────────────────────────────────────────────────────────
+$box-shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+$box-shadow:    0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+$box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+
+@import 'bootstrap/scss/bootstrap';
