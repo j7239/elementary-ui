@@ -11,22 +11,13 @@ EXCLUDE = \
 	-x ^\. \
 	-x Makefile \
 	-x node_modules/ \
-	-x scripts/ \
-	-x src/ \
-	-x docs/ \
-	-x test-envs/ \
 	-x playwright-report/ \
-	-x component-assets/ \
-	-x components/manifest.json \
 	-x build.js \
 	-x vite.config.js \
 	-x package.json \
 	-x package-lock.json \
 	-x README.md \
 	-x LICENSE \
-	-x mini-pad-sample.mp4 \
-	-x \.sh$$ \
-	-x video-clips.json
 
 # Publish to FTP (actual upload) - prompts for password
 pub:

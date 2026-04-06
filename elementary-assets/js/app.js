@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {string[]} depScripts - additional dependency component script paths
      */
     const buildIframeSrcdoc = (snippet, scriptSrc, depScripts = []) => {
-        const base = window.location.origin + '/';
+        const base = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
         const depTags = depScripts.map(src => `<script type="module" src="${src}"><\/script>`).join('\n');
         return `<!DOCTYPE html>
 <html>
