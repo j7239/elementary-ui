@@ -343,13 +343,33 @@ body {
    Layout / Navigation
    ========================================================================== */
 
+/* Registered as a <length> so the browser can interpolate it.
+   Both sidebar (transform) and content (margin-left) read from this single
+   animated value — guaranteeing frame-perfect sync with no threading gap. */
+@property --sidebar-gap {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 0px;
+}
+
 #wrapper {
     min-height: 100vh;
+    --sidebar-gap: var(--elm-sidebar-width);
+    transition: --sidebar-gap var(--elm-transition-speed) ease-in-out;
+}
+
+#wrapper.toggled {
+    --sidebar-gap: 0px;
 }
 
 #sidebar-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
     width: var(--elm-sidebar-width);
-    transition: margin var(--elm-transition-speed) ease-in-out;
+    /* Derived from --sidebar-gap — no individual transition needed */
+    transform: translateX(calc(var(--sidebar-gap) - var(--elm-sidebar-width)));
+    will-change: transform;
     background-color: var(--elm-sidebar-bg) !important;
     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
     /* Above the route-curtain (z-index: 99999) so sidebar stays visible during transitions */
@@ -411,13 +431,14 @@ body {
 }
 
 #page-content-wrapper {
-    width: calc(100% - var(--elm-sidebar-width));
+    width: 100%;
+    /* Derived from --sidebar-gap — no individual transition needed */
+    margin-left: var(--sidebar-gap);
     /* Scroll is scoped here, not at the window level.
        This means the scrollbar never affects window/html width,
        so no layout shift bounce between sections. */
     height: 100vh;
     overflow-y: auto;
-    transition: width var(--elm-transition-speed) ease-in-out;
     display: flex;
     flex-direction: column;
     background-color: var(--elm-surface-default);
@@ -448,8 +469,8 @@ body {
 }
 
 /* Toggle States — Desktop */
+/* transform and margin-left are derived from --sidebar-gap (set on #wrapper.toggled above) */
 #wrapper.toggled #sidebar-wrapper {
-    margin-left: calc(-1 * var(--elm-sidebar-width));
     /* Sidebar is off-screen: stop it intercepting mouse events on the canvas */
     pointer-events: none;
 }
@@ -460,15 +481,18 @@ body {
     pointer-events: auto;
 }
 
-#wrapper.toggled #page-content-wrapper {
-    width: 100%;
-}
-
 @media (max-width: 768px) {
+    /* On mobile the sidebar overlays — content never shifts, gap is always 0 */
+    #wrapper,
+    #wrapper.toggled {
+        --sidebar-gap: 0px;
+        transition: none;
+    }
+
     #sidebar-wrapper {
-        margin-left: calc(-1 * var(--elm-sidebar-width));
-        position: absolute;
-        height: 100vh;
+        /* Mobile has its own transform state independent of --sidebar-gap */
+        transform: translateX(calc(-1 * var(--elm-sidebar-width)));
+        transition: transform var(--elm-transition-speed) ease-in-out;
         /* Closed by default on mobile — don't eat canvas events */
         pointer-events: none;
     }
@@ -487,7 +511,7 @@ body {
 
     /* Mobile: sidebar open (toggled) — restore full interactivity */
     #wrapper.toggled #sidebar-wrapper {
-        margin-left: 0;
+        transform: translateX(0);
         pointer-events: auto;
     }
 
@@ -765,6 +789,10 @@ body {
     90% {
         transform: translate(-10%, 10%);
     }
+}
+
+.hero-gradient-overlay.pixi-active .bloom {
+    display: none;
 }
 
 .bloom {

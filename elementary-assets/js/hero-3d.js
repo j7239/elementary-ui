@@ -20,6 +20,58 @@ window.initHero3D = () => {
     let targetLeftOpacity = 0.5, targetRightOpacity = 0.5;
     let currentLeftOpacity = 0.5, currentRightOpacity = 0.5;
 
+    // --- PIXI.JS BLOOM SETUP ---
+    const GLOW_TEX_SIZE = 1000;
+    let pixiApp = null, leftBloom = null, rightBloom = null;
+
+    if (heroGradient && typeof PIXI !== 'undefined') {
+        heroGradient.classList.add('pixi-active');
+
+        const dpr = Math.min(window.devicePixelRatio, 1.5);
+        const initRect = heroGradient.getBoundingClientRect();
+        pixiApp = new PIXI.Application({
+            width: initRect.width,
+            height: initRect.height,
+            backgroundAlpha: 0,
+            antialias: true,
+            resolution: dpr,
+            autoDensity: true
+        });
+        heroGradient.appendChild(pixiApp.view);
+
+        window.addEventListener('resize', () => {
+            const r = heroGradient.getBoundingClientRect();
+            pixiApp.renderer.resize(r.width, r.height);
+        });
+
+        function createGlowTexture(color, size) {
+            const c = document.createElement('canvas');
+            c.width = size;
+            c.height = size;
+            const ctx = c.getContext('2d');
+            const g = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+            g.addColorStop(0, color);
+            g.addColorStop(0.75, color.replace(/[\d.]+\)$/, '0)'));
+            g.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = g;
+            ctx.fillRect(0, 0, size, size);
+            return PIXI.Texture.from(c);
+        }
+
+        const leftTex = createGlowTexture('rgba(99,91,255,1)', GLOW_TEX_SIZE);
+        const rightTex = createGlowTexture('rgba(255,62,118,1)', GLOW_TEX_SIZE);
+
+        leftBloom = new PIXI.Sprite(leftTex);
+        leftBloom.anchor.set(0.5, 0.5);
+        leftBloom.blendMode = PIXI.BLEND_MODES.ADD;
+
+        rightBloom = new PIXI.Sprite(rightTex);
+        rightBloom.anchor.set(0.5, 0.5);
+        rightBloom.blendMode = PIXI.BLEND_MODES.ADD;
+
+        pixiApp.stage.addChild(leftBloom, rightBloom);
+    }
+
     // --- THREE.JS SETUP ---
     const scene = new THREE.Scene();
     // Ambient color blending
@@ -480,22 +532,48 @@ window.initHero3D = () => {
     function animate() {
         requestAnimationFrame(animate);
 
-        // Lerp Blooms — only update CSS vars when home page is active
+        // Lerp Blooms — only update when home page is active
         if (heroGradient && isHomeActive()) {
             const ease = 0.15;
-            currentLeftX += (targetLeftX - currentLeftX) * ease;
-            currentRightX += (targetRightX - currentRightX) * ease;
-            currentY += (targetY - currentY) * ease;
+            // Position should track the pointer 1:1 with no visual lag.
+            currentLeftX = targetLeftX;
+            currentRightX = targetRightX;
+            currentY = targetY;
 
             // Lerp bloom opacities
             currentLeftOpacity += (targetLeftOpacity - currentLeftOpacity) * ease;
             currentRightOpacity += (targetRightOpacity - currentRightOpacity) * ease;
 
-            heroGradient.style.setProperty('--mouse-y', `${currentY}%`);
-            heroGradient.style.setProperty('--left-x', `${currentLeftX}%`);
-            heroGradient.style.setProperty('--right-x', `${currentRightX}%`);
-            heroGradient.style.setProperty('--left-opacity', currentLeftOpacity);
-            heroGradient.style.setProperty('--right-opacity', currentRightOpacity);
+            if (pixiApp && leftBloom && rightBloom) {
+                const rect = heroGradient.getBoundingClientRect();
+                const w = rect.width;
+                const h = rect.height;
+                const s = Math.max(w, h) / GLOW_TEX_SIZE;
+
+                // Auto-resize PIXI canvas if it was created at 0×0 (race condition:
+                // scripts loaded from cache before the 250ms curtain delay revealed the section)
+                const rW = Math.round(pixiApp.renderer.width / pixiApp.renderer.resolution);
+                const rH = Math.round(pixiApp.renderer.height / pixiApp.renderer.resolution);
+                if (w > 0 && h > 0 && (rW !== Math.round(w) || rH !== Math.round(h))) {
+                    pixiApp.renderer.resize(w, h);
+                }
+
+                leftBloom.scale.set(s);
+                leftBloom.x = w * (currentLeftX / 100);
+                leftBloom.y = h;
+                leftBloom.alpha = currentLeftOpacity;
+
+                rightBloom.scale.set(s);
+                rightBloom.x = w * (currentRightX / 100);
+                rightBloom.y = h;
+                rightBloom.alpha = currentRightOpacity;
+            } else {
+                heroGradient.style.setProperty('--mouse-y', `${currentY}%`);
+                heroGradient.style.setProperty('--left-x', `${currentLeftX}%`);
+                heroGradient.style.setProperty('--right-x', `${currentRightX}%`);
+                heroGradient.style.setProperty('--left-opacity', currentLeftOpacity);
+                heroGradient.style.setProperty('--right-opacity', currentRightOpacity);
+            }
         }
 
         const dt = Math.min(clock.getDelta(), 0.1); // prevent massive jumps if tab suspended

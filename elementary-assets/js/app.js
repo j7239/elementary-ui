@@ -1430,6 +1430,7 @@ ${scriptSrc ? `<script type="module" src="${scriptSrc}"><\/script>` : ''}
                 syncLottieColor();
 
                 // Load 3D hero scripts dynamically (sequential — each depends on the previous)
+                await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js');
                 await loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js');
                 await loadScript('https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js');
                 await loadScript('elementary-assets/js/hero-3d.js?v=1');
