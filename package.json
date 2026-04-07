@@ -1,13 +1,13 @@
 {
-    "name": "elm-ui",
+    "name": "elementary-ui",
     "version": "1.0.1",
     "description": "Elementary UI components library",
-    "main": "./dist/elm-ui.umd.js",
-    "module": "./dist/elm-ui.es.js",
+    "main": "./dist/elementary-ui.umd.js",
+    "module": "./dist/elementary-ui.es.js",
     "exports": {
         ".": {
-            "import": "./dist/elm-ui.es.js",
-            "require": "./dist/elm-ui.umd.js"
+            "import": "./dist/elementary-ui.es.js",
+            "require": "./dist/elementary-ui.umd.js"
         }
     },
     "scripts": {
@@ -33,6 +33,7 @@
         "bootstrap": "^5.3.8"
     },
     "devDependencies": {
+        "sass": "^1.99.0",
         "serve": "^14.2.0",
         "vite": "^4.5.14"
     }
