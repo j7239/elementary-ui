@@ -1,5 +1,5 @@
 <p align="left">
-  <img src="elementary-assets/elementary-logo-light.png" alt="Elementary UI" width="250">
+  <img src="https://kinferra.com/elm-ui-demo/elementary-assets/elementary-logo.png" alt="Elementary UI" width="250">
 </p>
 
 Built primarily for Shadow DOM based HTML web components. Brand your library, fill it with your components, and manage your team’s component system from a single place. 
@@ -8,8 +8,21 @@ Allow your favorite AI agents a centeralized folder to access your components an
 
 ## Quick Start
 
-1. **Fork or clone** this repository
-2. **Edit `brand.json`** with your project identity:
+### Install from npm
+
+```bash
+npm install @j7239/elementary-ui
+```
+
+Copy the brand layer into your project (one-time):
+
+```bash
+cp -r node_modules/@j7239/elementary-ui/component-assets ./component-assets
+```
+
+### Or fork/clone the repository
+
+1. **Edit `brand.json`** with your project identity:
    ```json
    {
      "distName": "my-brand-ui",
@@ -18,15 +31,23 @@ Allow your favorite AI agents a centeralized folder to access your components an
      "version": "1.0.0"
    }
    ```
-3. **Initialize:**
+2. **Initialize:**
    ```bash
    npm install
    npm run init
    ```
-4. **Launch the playground:**
+3. **Launch the playground:**
    ```bash
    npm run dev
    ```
+
+## Staying Up to Date
+
+```bash
+npm update @j7239/elementary-ui
+```
+
+Updates only affect the JS bundle in `node_modules/`. Your `component-assets/`, `brand.json`, and `components/` configs are never touched.
 
 ## What You Customize
 
@@ -51,7 +72,7 @@ That compiled CSS is delivered to your components through two separate systems d
 
 ### Lib Styles (Built Library)
 
-`src/lib-styles.js` serves the same purpose but for the built ES module (`dist/elm-ui.es.js`). It inlines the compiled CSS directly into the bundle and exposes it as `window.sharedStyles` — an array of `CSSStyleSheet` objects that every component adopts into its Shadow DOM:
+`src/lib-styles.js` serves the same purpose but for the built ES module (`dist/elementary-ui.es.js`). It inlines the compiled CSS directly into the bundle and exposes it as `window.sharedStyles` — an array of `CSSStyleSheet` objects that every component adopts into its Shadow DOM:
 
 ```js
 const shared = window.sharedStyles || [];
@@ -97,7 +118,7 @@ Every test environment must import its components from the built ES module via a
 
 ```html
 <script type="module">
-    import { Button, Dropdown } from '../../dist/elm-ui.es.js';
+    import { Button, Dropdown } from '../../dist/elementary-ui.es.js';
 </script>
 ```
 

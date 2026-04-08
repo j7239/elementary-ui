@@ -1,5 +1,5 @@
 {
-    "name": "elementary-ui",
+    "name": "@j7239/elementary-ui",
     "version": "1.0.2",
     "description": "Elementary UI components library",
     "main": "./dist/elementary-ui.umd.js",
