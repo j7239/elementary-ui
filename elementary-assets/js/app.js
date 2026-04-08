@@ -1387,20 +1387,16 @@ ${scriptSrc ? `<script type="module" src="${scriptSrc}"><\/script>` : ''}
             const title = brand.title || brand.distName;
             if (title) document.title = title;
 
-            // Version badge — prefer brand.version, fallback to package.json
+            // Version badge — read from package.json
             const badge = document.querySelector('.sidebar-version-badge');
             if (badge) {
-                if (brand.version) {
-                    badge.textContent = `v${brand.version}`;
-                } else {
-                    try {
-                        const pkgRes = await fetch('package.json');
-                        if (pkgRes.ok) {
-                            const pkg = await pkgRes.json();
-                            if (pkg.version) badge.textContent = `v${pkg.version}`;
-                        }
-                    } catch (_) { /* keep existing badge text */ }
-                }
+                try {
+                    const pkgRes = await fetch('package.json');
+                    if (pkgRes.ok) {
+                        const pkg = await pkgRes.json();
+                        if (pkg.version) badge.textContent = `v${pkg.version}`;
+                    }
+                } catch (_) { /* keep existing badge text */ }
             }
         } catch (e) {
             console.error('Failed to load brand.json:', e);

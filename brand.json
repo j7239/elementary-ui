@@ -2,7 +2,6 @@
     "distName": "elementary-ui",
     "globalName": "ElementaryUI",
     "title": "Elementary UI Library",
-    "version": "1.0.3",
     "hideHero": false,
     "hideWelcome": false
 }
